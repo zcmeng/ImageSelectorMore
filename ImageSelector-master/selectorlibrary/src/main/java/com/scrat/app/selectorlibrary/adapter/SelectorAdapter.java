@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.scrat.app.selectorlibrary.R;
 import com.scrat.app.selectorlibrary.model.ISelectImageItem;
 import com.scrat.app.selectorlibrary.model.Img;
@@ -59,7 +60,8 @@ public class SelectorAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
             return;
 
         final ImageView imageView = holder.getView(R.id.iv_img);
-         RequestOptions options=new RequestOptions();
+
+        RequestOptions options=new RequestOptions();
         options.placeholder(getColor(pos)).centerCrop();
         Glide.with(imageView.getContext()).load(item.getImgPath()).apply(options).into(imageView);
         if (item.isChecked()) {
